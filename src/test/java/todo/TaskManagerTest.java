@@ -74,45 +74,65 @@ class TaskManagerTest {
         assertEquals("Limpiar la casa y el jardín", task.getDescription());
     }
     @Test
+    @DisplayName("Non existent task can't be deleted")
     void deleteNonExistentTask() {
         Task task2 = new Task ("Limpiar", "Limpiar la casa");
         assertThrows(IllegalArgumentException.class, () -> taskManager.deleteTask(task2));
     }
     @Test
+    @DisplayName("Non existent task can't be edited")
     void editNonExistingTask() {
         Task task2 = new Task ("Limpiar", "Limpiar la casa");
         assertThrows(IllegalArgumentException.class,() -> taskManager.editDescription(task2, "Limpiar la casa y el jardín"));
     }
     @Test
+    @DisplayName("Task can't be created with empty title")
     void testCreateTaskWithEmptyTitle() {
         assertThrows(IllegalArgumentException.class, () -> taskManager.createTask(user,"", "Description"));
     }
     @Test
+    @DisplayName("Task can be created with empty description")
     void testCreateTaskWithEmptyDescription() {
         assertNotNull(taskManager.createTask(user,"Title", ""));
     }
     @Test
+    @DisplayName("Task can't be created with null title")
     void testCreateTaskWithNullTitle() {
         assertThrows(IllegalArgumentException.class, () -> taskManager.createTask(user,null, "Description"));
     }
     @Test
+    @DisplayName("Task can be created with null description")
     void testCreateTaskWithNullDescription() {
         assertNotNull(taskManager.createTask(user,"Title", null));
     }
     @Test
+    @DisplayName("Task can't be edited with empty title")
     void testEditTaskWithEmptyTitle() {
         assertThrows(IllegalArgumentException.class, () -> taskManager.editTask(task, "", "Description"));
     }
     @Test
+    @DisplayName("Task can't be edited with null title")
     void testEditTaskWithNullTitle() {
         assertThrows(IllegalArgumentException.class, () -> taskManager.editTask(task, null, "Description"));
     }
     @Test
+    @DisplayName("Task can be edited with null description")
     void testEditTaskWithEmptyDescription() {
         assertNotNull(taskManager.editTask(task, "Title", null));
     }
     @Test
+    @DisplayName("Task can't be created with null user")
     void testCreateTaskWithNullUser() {
         assertThrows(IllegalArgumentException.class, () -> taskManager.createTask(null,"Title", "Description"));
+    }
+    @Test
+    @DisplayName("Task can't be edited with null task")
+    void testEditTaskWithNullTask() {
+        assertThrows(IllegalArgumentException.class, () -> taskManager.editTask(null, "Title", "Description"));
+    }
+    @Test
+    void testUserCanHaveMultipleTasks() {
+        Task task2 = taskManager.createTask(user,"Titulo2", "Descripcion2");
+        assertEquals(2, user.getTaskLen());
     }
 }
