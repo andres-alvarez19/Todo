@@ -1,11 +1,11 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+S
+#src/main/java/todo/TaskManager.java,f\3\f3a5455a5cc7aba895ce144861e7e8a31b49e1ac
+W
+'src/test/java/todo/TaskManagerTest.java,8\0\80a348c615f109110dff34249864261a5a2174ab
 L
-src/main/java/todo/todo.java,5\5\5543f814ea6db80c8bb4aafe90133cf900301c9f
-P
- src/test/java/todo/todoTest.java,b\5\b538663d40be63c6df414433116e7047aa27ac13
+src/main/java/todo/Task.java,c\2\c22c835019e2f4b05604f50caeba967c38c48927
 L
-src/main/java/todo/Todo.java,a\0\a018342fb139c72cfd202ccd0e68b890c3fc6974
-P
- src/test/java/todo/TodoTest.java,3\1\3183ad606f616844db5bc480cdc372fcbae87fd0
+src/test/java/todo/User.java,2\7\279e82b383ca6900becc95e4dc1463cf89c20289
